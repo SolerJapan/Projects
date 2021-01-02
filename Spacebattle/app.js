@@ -44,12 +44,12 @@ var game = class{
 			
 			if(playerShip.hull <= 0)// if the player ship health is zero or less if so the lose condition is fulfilled and you lose
 			{
-				console.log("You're ship has been destroyed. Game Over");
+				console.log("%c You're ship has been destroyed. Game Over","color: red;");
 				lose = true;
 			}
 			else if(currentEnemy.hull <= 0)
 			{
-				console.log("The enemy ship has been destroyed."); // once the enemy ship has been destroyed
+				console.log("%c The enemy ship has been destroyed.","color: blue;"); // once the enemy ship has been destroyed
 				if(enemyShips && enemyShips.length) // a check is run on the array to see if theres any remaining
 				{
 					console.log("There are " + enemyShips.length + " ships remaining ")
@@ -62,7 +62,7 @@ var game = class{
 				else 
 				{  // if no enemy remains you fulfill the win condition and the game is over 
 				   currentEnemy = ""; 
-				   console.log("the enemy has been wiped out you win") 
+				   console.log("%c the enemy has been wiped out you win","color: blue;") 
 				   win = true;
 				}
 			}
@@ -183,6 +183,7 @@ function Continue()
 	while (setContinue == false)// check if you want to continue
 	{
 		continuePlay = prompt("do you want to continue", "yes or no");// if so everything is reset
+		continuePlay = continuePlay.toLowerCase(); //if user inputs capitals
 		
 		if(continuePlay === null) 
 		{
@@ -228,6 +229,8 @@ function Withdraw()
 	while(setRetreat === false )
 	{
 		retreat = prompt("do you want to retreat", "yes or no");
+		retreat = retreat.toLowerCase(); //if user inputs capitals
+		
 		if(retreat === null) 
 		{
 			retreat = "no";
@@ -260,6 +263,8 @@ function setDiff()
 	while(setdifficulty == false ){
 		
 		difficulty = prompt("what is your difficulty", "easy, normal, hard, or random"); 
+		
+		difficulty = difficulty.toLowerCase();//if user inputs capitals
 		
 		if(difficulty === null) 
 		{
